@@ -1,3 +1,2 @@
-Ayuda de Latex v 1.0
-Martín Sattler 2021
+LaTe(ne)x Adentro
 https://github.com/tinchox175/LTA
