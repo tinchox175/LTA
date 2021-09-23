@@ -1,10 +1,6 @@
 import tkinter as tk
-from PIL import ImageTk, Image
 import pyperclip as pc
 import numpy as np
-import requests
-import os
-from io import BytesIO
 
 lx = tk.Tk()
 lx.title('Late(ne)x Adentro')
@@ -23,7 +19,7 @@ def fraccion():
     limitearriba = ftop.get()
     limiteabajo = fbot.get()
     return(limitearriba,limiteabajo)
-frac = tk.Button(lx, text='Fraccion', command=lambda *args: printInput('\\frac{'+fraccion()[0]+'}{'+fraccion()[0]+'}'), height=1, width=w1, bg='#647ab5')
+frac = tk.Button(lx, text='Fraccion', command=lambda *args: printInput('\\frac{'+fraccion()[0]+'}{'+fraccion()[1]+'}'), height=1, width=w1, bg='#647ab5')
 frac.grid(row=1,column=0)
 
 inttop = tk.StringVar()
@@ -213,6 +209,17 @@ def clipboard():
     escribiaca = tk.Text(cleep, bg='#647ab5').pack()
 cb = tk.Button(lx, text='Clipboard', command=clipboard, height=1, width=w1, bg='#647ab5')
 cb.grid(row=9,column=0)
+
+lvar = tk.StringVar()
+llim = tk.StringVar()
+ln_size = tk.Entry(lx, textvariable = lvar, width=5, bg='#647ab5').grid(row=3,column=6)
+lm_size = tk.Entry(lx, textvariable = llim, width=5, bg='#647ab5').grid(row=3,column=7)
+def limite():
+    limitearriba = lvar.get()
+    limiteabajo = llim.get()
+    return(limitearriba,limiteabajo)
+sum = tk.Button(lx, text='Limite', command=lambda *args: printInput('\[ \lim_{'+limite()[0]+'\\to'+limite()[1]+'\\]'), height=1, width=w1, bg='#647ab5')
+sum.grid(row=3,column=5)
 
 # asdasdasd = tk.StringVar()
 # cc = tk.Label(lx, textvariable=asdasdasd, font=("Comic Sans",8), bg='#647ab5')
